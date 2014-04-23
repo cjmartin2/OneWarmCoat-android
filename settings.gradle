@@ -1,1 +1,3 @@
-include ':app', ':facebook'
+include ':app'
+include ':stripe'
+include ':facebook'

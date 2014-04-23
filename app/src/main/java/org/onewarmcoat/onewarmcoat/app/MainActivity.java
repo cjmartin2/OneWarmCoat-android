@@ -1,6 +1,7 @@
 package org.onewarmcoat.onewarmcoat.app;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
@@ -28,7 +29,7 @@ public class MainActivity extends Activity {
 //    private NavigationDrawerFragment mNavigationDrawerFragment;
 
     /**
-     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
+     * Used to store the last screen title. For use in { #restoreActionBar()}.
      */
     DrawerLayout mDrawerLayout;
     ListView mDrawerList;
@@ -49,8 +50,8 @@ public class MainActivity extends Activity {
         Parse.initialize(this, "c8IKIZkRcbkiMkDqdxkM4fKrBymrX7p7glVQ6u8d", "EFY5RxFnVEKzNOMKGKa3JqLR6zJlS4P6z0OPF3Mt");
 
         //TODO: create a setupViews function to wrap all of this
-        donateFragment = new DonateFragment();
-        volunteerFragment = new VolunteerFragment();
+        donateFragment = DonateFragment.newInstance();
+        volunteerFragment = VolunteerFragment.newInstance();
 
 //        mNavigationDrawerFragment = (NavigationDrawerFragment)
 //                getFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -103,7 +104,13 @@ public class MainActivity extends Activity {
         selectItem(0);
     }
 
-//    @Override
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        //check for any request codes, then call super, so fragments can catch the result
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    //    @Override
 //    public void onNavigationDrawerItemSelected(int position) {
 //        // update the main content by replacing fragments
 //        FragmentManager fragmentManager = getFragmentManager();
