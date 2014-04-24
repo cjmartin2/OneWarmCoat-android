@@ -35,6 +35,7 @@ dependencies {
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile files('libs/Parse-1.4.3/Parse-1.4.3.jar')
+    compile 'com.android.support:support-v4:19.0.+'
     compile project(':facebook')
 //    compile files('libs/card.io-3.1.4/card.io.jar')
     compile project(':stripe')
